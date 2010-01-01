@@ -18,6 +18,6 @@ This has to be done only once. Now the PEAR Installer can be used to install pac
     downloading Text_Template-1.0.0.tgz ...
     Starting to download Text_Template-1.0.0.tgz (2,493 bytes)
     ....done: 2,493 bytes
-    install ok: channel://pear.phpunit.de/Text_Template-1.1.0
+    install ok: channel://pear.phpunit.de/Text_Template-1.0.0
 
 After the installation you can find the Text_Template source files inside your local PEAR directory; the path is usually `/usr/lib/php/Text`.
