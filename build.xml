@@ -1,0 +1,7 @@
+<project name="php-text-template" default="phpab" basedir=".">
+ <target name="phpab">
+  <exec executable="phpab">
+   <arg line='-o Text/Template/Autoload.php -c -t Text/Template/Autoload.php.in --indent "          " Text' />
+  </exec>
+ </target>
+</project>
