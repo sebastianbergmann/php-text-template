@@ -27,7 +27,7 @@
   <api>stable</api>
  </stability>
  <license>BSD License</license>
- <notes>http://github.com/sebastianbergmann/php-template/tree</notes>
+ <notes>http://github.com/sebastianbergmann/php-text-template</notes>
  <contents>
   <dir name="/">
    <dir name="Text">
