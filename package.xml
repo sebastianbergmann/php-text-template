@@ -23,7 +23,7 @@
   <api>1.1.0</api>
  </version>
  <stability>
-  <release>beta</release>
+  <release>stable</release>
   <api>stable</api>
  </stability>
  <license>BSD License</license>
