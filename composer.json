@@ -1,0 +1,19 @@
+{
+    "name": "sebastianbergmann/php-text-template",
+    "description": "Text_Template: Simple template engine",
+    "keywords": ["template"],
+    "homepage": "https://github.com/sebastianbergmann/php-text-template",
+    "license": "The BSD 3-Clause License",
+    "authors": [
+        {
+            "name": "Sebastian Bergmann",
+            "homepage": "http://sebastian-bergmann.de/"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "Text": "" }
+    },
+    "require": {
+        "php": ">=5.2.7"
+    }
+}
