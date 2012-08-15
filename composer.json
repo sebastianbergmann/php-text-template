@@ -22,7 +22,10 @@
         "bin-dir": "bin"
     },
     "autoload": {
-        "classmap": ["Text/"]
+        "psr-0": {
+            "Text_": ""
+        },
+        "files": ["Text/Template/Autoload.php"]
     },
     "minimum-stability": "dev",
     "extra": {
