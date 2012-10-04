@@ -9,9 +9,11 @@
         "irc": "irc://irc.freenode.net/phpunit"
     },
     "autoload": {
-        "files": [ "Text/Template/Autoload.php" ]
+        "classmap": [ "Text/" ]
     },
     "include_path": [
         ""
-    ]
+    ],
+    "version": false,
+    "time": false
 }
