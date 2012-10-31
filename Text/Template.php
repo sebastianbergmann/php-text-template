@@ -147,7 +147,18 @@ class Text_Template
             fwrite($fp, $this->render());
             fclose($fp);
         } else {
-            throw new RuntimeException('Could not write to ' . $target . '.');
+            $error = error_get_last();
+
+            throw new RuntimeException(
+              sprintf(
+                'Could not write to %s: %s',
+                $target,
+                substr(
+                  $error['message'],
+                  strpos($error['message'], ':') + 2
+                )
+              )
+            );
         }
     }
 }
