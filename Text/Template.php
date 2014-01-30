@@ -63,6 +63,16 @@ class Text_Template
     protected $template = '';
 
     /**
+     * @var string
+     */
+    protected $openDelimiter = '{';
+
+    /**
+     * @var string
+     */
+    protected $closeDelimiter = '}';
+
+    /**
      * @var array
      */
     protected $values = array();
@@ -73,9 +83,11 @@ class Text_Template
      * @param  string $file
      * @throws InvalidArgumentException
      */
-    public function __construct($file = '')
+    public function __construct($file = '', $openDelimiter = '{', $closeDelimiter = '}')
     {
         $this->setFile($file);
+        $this->openDelimiter  = $openDelimiter;
+        $this->closeDelimiter = $closeDelimiter;
     }
 
     /**
@@ -128,7 +140,7 @@ class Text_Template
         $keys = array();
 
         foreach ($this->values as $key => $value) {
-            $keys[] = '{' . $key . '}';
+            $keys[] = $this->openDelimiter . $key . $this->closeDelimiter;
         }
 
         return str_replace($keys, $this->values, $this->template);
@@ -162,3 +174,4 @@ class Text_Template
         }
     }
 }
+
