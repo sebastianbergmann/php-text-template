@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the Text_Template.
+ * This file is part of the Text_Template package.
  *
  * (c) Sebastian Bergmann <sebastian@phpunit.de>
  *
