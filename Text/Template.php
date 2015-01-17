@@ -50,7 +50,8 @@ class Text_Template
      */
     public function __construct($file = '', $openDelimiter = '{', $closeDelimiter = '}')
     {
-        $this->setFile($file);
+      if (!empty($file)) {$this->setFile($file);}
+
         $this->openDelimiter  = $openDelimiter;
         $this->closeDelimiter = $closeDelimiter;
     }
@@ -78,6 +79,16 @@ class Text_Template
               'Template file could not be loaded.'
             );
         }
+    }
+
+
+    /**
+     * Sets the template from a string
+     * @param string $str
+     */
+    public function setTemplate($str)
+    {
+      $this->template = $str;
     }
 
     /**
