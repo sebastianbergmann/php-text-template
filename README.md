@@ -1,23 +1,14 @@
-Text_Template
-=============
+# Text_Template
 
-Installation
-------------
+## Installation
 
-Text_Template should be installed using the [PEAR Installer](http://pear.php.net/). This installer is the backbone of PEAR, which provides a distribution system for PHP packages, and is shipped with every release of PHP since version 4.3.0.
+## Installation
 
-The PEAR channel (`pear.phpunit.de`) that is used to distribute Text_Template needs to be registered with the local PEAR environment:
+To add this package as a local, per-project dependency to your project, simply add a dependency on `phpunit/php-text-template` to your project's `composer.json` file. Here is a minimal example of a `composer.json` file that just defines a dependency on Text_Template:
 
-    sb@ubuntu ~ % pear channel-discover pear.phpunit.de
-    Adding Channel "pear.phpunit.de" succeeded
-    Discovery of channel "pear.phpunit.de" succeeded
+    {
+        "require": {
+            "phpunit/php-text-template": "~1.2"
+        }
+    }
 
-This has to be done only once. Now the PEAR Installer can be used to install packages from the PHPUnit channel:
-
-    sb@vmware ~ % pear install phpunit/Text_Template
-    downloading Text_Template-1.0.0.tgz ...
-    Starting to download Text_Template-1.0.0.tgz (2,493 bytes)
-    ....done: 2,493 bytes
-    install ok: channel://pear.phpunit.de/Text_Template-1.0.0
-
-After the installation you can find the Text_Template source files inside your local PEAR directory; the path is usually `/usr/lib/php/Text`.

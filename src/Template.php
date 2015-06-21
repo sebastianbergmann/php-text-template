@@ -11,14 +11,7 @@
 /**
  * A simple template engine.
  *
- * @category   Text
- * @package    Template
- * @author     Sebastian Bergmann <sebastian@phpunit.de>
- * @copyright  Sebastian Bergmann <sebastian@phpunit.de>
- * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
- * @version    Release: @package_version@
- * @link       http://github.com/sebastianbergmann/php-text-template
- * @since      Class available since Release 1.0.0
+ * @since Class available since Release 1.0.0
  */
 class Text_Template
 {
@@ -45,7 +38,7 @@ class Text_Template
     /**
      * Constructor.
      *
-     * @param  string $file
+     * @param  string                   $file
      * @throws InvalidArgumentException
      */
     public function __construct($file = '', $openDelimiter = '{', $closeDelimiter = '}')
@@ -58,7 +51,7 @@ class Text_Template
     /**
      * Sets the template file.
      *
-     * @param  string $file
+     * @param  string                   $file
      * @throws InvalidArgumentException
      */
     public function setFile($file)
@@ -83,8 +76,8 @@ class Text_Template
     /**
      * Sets one or more template variables.
      *
-     * @param  array   $values
-     * @param  boolean $merge
+     * @param array $values
+     * @param bool  $merge
      */
     public function setVar(array $values, $merge = TRUE)
     {
