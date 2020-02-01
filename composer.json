@@ -18,12 +18,16 @@
         "issues": "https://github.com/sebastianbergmann/php-text-template/issues"
     },
     "require": {
-        "php": ">=5.3.3"
+        "php": "^7.3"
     },
     "autoload": {
         "classmap": [
             "src/"
         ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0-dev"
+        }
     }
 }
-
