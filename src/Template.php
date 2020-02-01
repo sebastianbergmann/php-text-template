@@ -10,7 +10,7 @@
 
 namespace SebastianBergmann\Template;
 
-final class Engine
+final class Template
 {
     /**
      * @var string
