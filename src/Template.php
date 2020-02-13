@@ -84,6 +84,9 @@ final class Template
         return \str_replace($keys, $this->values, $this->template);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function renderTo(string $target): void
     {
         if (!\file_put_contents($target, $this->render())) {
