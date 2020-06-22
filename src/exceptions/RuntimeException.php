@@ -9,6 +9,8 @@
  */
 namespace SebastianBergmann\Template;
 
-final class RuntimeException extends \InvalidArgumentException implements Exception
+use InvalidArgumentException;
+
+final class RuntimeException extends InvalidArgumentException implements Exception
 {
 }

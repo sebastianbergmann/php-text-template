@@ -7,8 +7,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace SebastianBergmann\Template;
+
+use function array_merge;
+use function file_exists;
+use function file_get_contents;
+use function file_put_contents;
+use function sprintf;
+use function str_replace;
 
 final class Template
 {
@@ -50,13 +56,13 @@ final class Template
     {
         $distFile = $file . '.dist';
 
-        if (\file_exists($file)) {
-            $this->template = \file_get_contents($file);
-        } elseif (\file_exists($distFile)) {
-            $this->template = \file_get_contents($distFile);
+        if (file_exists($file)) {
+            $this->template = file_get_contents($file);
+        } elseif (file_exists($distFile)) {
+            $this->template = file_get_contents($distFile);
         } else {
             throw new InvalidArgumentException(
-                \sprintf(
+                sprintf(
                     'Failed to load template "%s"',
                     $file
                 )
@@ -69,7 +75,7 @@ final class Template
         if (!$merge || empty($this->values)) {
             $this->values = $values;
         } else {
-            $this->values = \array_merge($this->values, $values);
+            $this->values = array_merge($this->values, $values);
         }
     }
 
@@ -81,7 +87,7 @@ final class Template
             $keys[] = $this->openDelimiter . $key . $this->closeDelimiter;
         }
 
-        return \str_replace($keys, $this->values, $this->template);
+        return str_replace($keys, $this->values, $this->template);
     }
 
     /**
@@ -89,9 +95,9 @@ final class Template
      */
     public function renderTo(string $target): void
     {
-        if (!\file_put_contents($target, $this->render())) {
+        if (!file_put_contents($target, $this->render())) {
             throw new RuntimeException(
-                \sprintf(
+                sprintf(
                     'Writing rendered result to "%s" failed',
                     $target
                 )
