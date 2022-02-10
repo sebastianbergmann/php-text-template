@@ -4,7 +4,7 @@
     xmlns="https://getpsalm.org/schema/config"
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
     resolveFromConfigFile="false"
-    totallyTyped="false"
+    totallyTyped="true"
     errorBaseline=".psalm/baseline.xml"
 >
     <projectFiles>
