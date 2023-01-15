@@ -20,9 +20,7 @@ use function str_replace;
 final class Template
 {
     private string $template = '';
-
     private string $openDelimiter;
-
     private string $closeDelimiter;
 
     /**
