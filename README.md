@@ -1,4 +1,4 @@
-# Text_Template
+# php-text-template
 
 ## Installation
 
