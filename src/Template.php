@@ -14,7 +14,6 @@ use function array_merge;
 use function file_get_contents;
 use function file_put_contents;
 use function is_file;
-use function is_readable;
 use function is_string;
 use function sprintf;
 use function str_replace;
@@ -104,7 +103,7 @@ final class Template
      */
     private function loadTemplateFile(string $file): string
     {
-        if (is_file($file) && is_readable($file)) {
+        if (is_file($file)) {
             $template = file_get_contents($file);
 
             if (is_string($template) && !empty($template)) {
@@ -114,7 +113,7 @@ final class Template
 
         $distFile = $file . '.dist';
 
-        if (is_file($distFile) && is_readable($distFile)) {
+        if (is_file($distFile)) {
             $template = file_get_contents($distFile);
 
             if (is_string($template) && !empty($template)) {
