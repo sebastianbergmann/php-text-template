@@ -6,6 +6,7 @@ All notable changes are documented in this file using the [Keep a CHANGELOG](htt
 
 ### Removed
 
+* The `SebastianBergmann\Template\Template::setFile()` method has been removed
 * This component is no longer supported on PHP 8.1
 
 ## [3.0.1] - 2023-08-31

@@ -14,14 +14,27 @@ use function array_merge;
 use function file_get_contents;
 use function file_put_contents;
 use function is_file;
+use function is_readable;
+use function is_string;
 use function sprintf;
 use function str_replace;
 
 final class Template
 {
-    private string $template = '';
-    private string $openDelimiter;
-    private string $closeDelimiter;
+    /**
+     * @psalm-var non-empty-string
+     */
+    private readonly string $template;
+
+    /**
+     * @psalm-var non-empty-string
+     */
+    private readonly string $openDelimiter;
+
+    /**
+     * @psalm-var non-empty-string
+     */
+    private readonly string $closeDelimiter;
 
     /**
      * @psalm-var array<string,string>
@@ -29,41 +42,17 @@ final class Template
     private array $values = [];
 
     /**
+     * @psalm-param non-empty-string $templateFile
+     * @psalm-param non-empty-string $openDelimiter
+     * @psalm-param non-empty-string $closeDelimiter
+     *
      * @throws InvalidArgumentException
      */
-    public function __construct(string $file = '', string $openDelimiter = '{', string $closeDelimiter = '}')
+    public function __construct(string $templateFile, string $openDelimiter = '{', string $closeDelimiter = '}')
     {
-        $this->setFile($file);
-
+        $this->template       = $this->loadTemplateFile($templateFile);
         $this->openDelimiter  = $openDelimiter;
         $this->closeDelimiter = $closeDelimiter;
-    }
-
-    /**
-     * @throws InvalidArgumentException
-     */
-    public function setFile(string $file): void
-    {
-        if (is_file($file)) {
-            $this->template = file_get_contents($file);
-
-            return;
-        }
-
-        $distFile = $file . '.dist';
-
-        if (is_file($distFile)) {
-            $this->template = file_get_contents($distFile);
-
-            return;
-        }
-
-        throw new InvalidArgumentException(
-            sprintf(
-                'Failed to load template "%s"',
-                $file
-            )
-        );
     }
 
     /**
@@ -104,5 +93,40 @@ final class Template
                 )
             );
         }
+    }
+
+    /**
+     * @psalm-param non-empty-string $file
+     *
+     * @psalm-return non-empty-string
+     *
+     * @throws InvalidArgumentException
+     */
+    private function loadTemplateFile(string $file): string
+    {
+        if (is_file($file) && is_readable($file)) {
+            $template = file_get_contents($file);
+
+            if (is_string($template) && !empty($template)) {
+                return $template;
+            }
+        }
+
+        $distFile = $file . '.dist';
+
+        if (is_file($distFile) && is_readable($distFile)) {
+            $template = file_get_contents($distFile);
+
+            if (is_string($template) && !empty($template)) {
+                return $template;
+            }
+        }
+
+        throw new InvalidArgumentException(
+            sprintf(
+                'Failed to load template "%s"',
+                $file
+            )
+        );
     }
 }
