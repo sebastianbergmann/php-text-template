@@ -25,7 +25,7 @@ final class TemplateTest extends TestCase
             [
                 'foo' => 'baz',
                 'bar' => 'barbara',
-            ]
+            ],
         );
 
         $this->assertSame("baz barbara\n", $template->render());
@@ -39,7 +39,7 @@ final class TemplateTest extends TestCase
             [
                 'foo' => 'baz',
                 'bar' => 'barbara',
-            ]
+            ],
         );
 
         $this->assertSame("baz barbara\n", $template->render());
@@ -52,13 +52,13 @@ final class TemplateTest extends TestCase
         $template->setVar(
             [
                 'foo' => 'baz',
-            ]
+            ],
         );
 
         $template->setVar(
             [
                 'bar' => 'barbara',
-            ]
+            ],
         );
 
         $this->assertSame("baz barbara\n", $template->render());
