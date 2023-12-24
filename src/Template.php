@@ -61,8 +61,8 @@ final class Template
         throw new InvalidArgumentException(
             sprintf(
                 'Failed to load template "%s"',
-                $file
-            )
+                $file,
+            ),
         );
     }
 
@@ -100,8 +100,8 @@ final class Template
             throw new RuntimeException(
                 sprintf(
                     'Writing rendered result to "%s" failed',
-                    $target
-                )
+                    $target,
+                ),
             );
         }
     }
