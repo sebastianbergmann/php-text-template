@@ -97,9 +97,9 @@ final class Template
     /**
      * @param non-empty-string $file
      *
-     * @return non-empty-string
-     *
      * @throws InvalidArgumentException
+     *
+     * @return non-empty-string
      */
     private function loadTemplateFile(string $file): string
     {
