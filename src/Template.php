@@ -59,7 +59,7 @@ final class Template
      */
     public function setVar(array $values, bool $merge = true): void
     {
-        if (!$merge || empty($this->values)) {
+        if (!$merge || $this->values === []) {
             $this->values = $values;
 
             return;
@@ -106,7 +106,7 @@ final class Template
         if (is_file($file)) {
             $template = file_get_contents($file);
 
-            if (is_string($template) && !empty($template)) {
+            if (is_string($template) && $template !== '') {
                 return $template;
             }
         }
@@ -116,7 +116,7 @@ final class Template
         if (is_file($distFile)) {
             $template = file_get_contents($distFile);
 
-            if (is_string($template) && !empty($template)) {
+            if (is_string($template) && $template !== '') {
                 return $template;
             }
         }
