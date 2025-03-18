@@ -84,7 +84,7 @@ final class Template
      */
     public function renderTo(string $target): void
     {
-        if (!@file_put_contents($target, $this->render())) {
+        if (@file_put_contents($target, $this->render()) === false) {
             throw new RuntimeException(
                 sprintf(
                     'Writing rendered result to "%s" failed',
