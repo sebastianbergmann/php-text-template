@@ -64,6 +64,20 @@ final class TemplateTest extends TestCase
         $this->assertSame("baz barbara\n", $template->render());
     }
 
+    public function testDoesNotReplacePlaceholdersInInsertedValues(): void
+    {
+        $template = new Template(__DIR__ . '/_fixture/one.txt');
+
+        $template->setVar(
+            [
+                'foo' => '{bar}',
+                'bar' => '{foo}',
+            ],
+        );
+
+        $this->assertSame("{bar} {foo}\n", $template->render());
+    }
+
     public function testCannotRenderTemplateThatDoesNotExist(): void
     {
         $this->expectException(InvalidArgumentException::class);
