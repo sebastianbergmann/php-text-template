@@ -9,14 +9,13 @@
  */
 namespace SebastianBergmann\Template;
 
-use function array_keys;
 use function array_merge;
 use function file_get_contents;
 use function file_put_contents;
 use function is_file;
 use function is_string;
 use function sprintf;
-use function str_replace;
+use function strtr;
 
 final class Template
 {
@@ -70,13 +69,13 @@ final class Template
 
     public function render(): string
     {
-        $keys = [];
+        $replacements = [];
 
-        foreach (array_keys($this->values) as $key) {
-            $keys[] = $this->openDelimiter . $key . $this->closeDelimiter;
+        foreach ($this->values as $key => $value) {
+            $replacements[$this->openDelimiter . $key . $this->closeDelimiter] = $value;
         }
 
-        return str_replace($keys, $this->values, $this->template);
+        return strtr($this->template, $replacements);
     }
 
     /**
