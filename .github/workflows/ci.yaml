@@ -145,6 +145,7 @@ jobs:
         with:
           php-version: ${{ matrix.php-version }}
           coverage: none
+          ini-values: memory_limit=-1, zend.assertions=1, error_reporting=-1, display_errors=On, display_startup_errors=On
           tools: none
 
       - name: Get Composer cache directory
@@ -204,6 +205,7 @@ jobs:
         with:
           php-version: ${{ env.PHP_VERSION }}
           coverage: xdebug
+          ini-values: memory_limit=-1, zend.assertions=1, error_reporting=-1, display_errors=On, display_startup_errors=On
           tools: none
 
       - name: Get Composer cache directory
